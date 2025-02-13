@@ -1,7 +1,5 @@
 # Ignore Python virtual environments
 venv/
-.LingvoViz/
-Lib/
 
 # Ignore compiled Python files
 __pycache__/
@@ -9,3 +7,6 @@ __pycache__/
 
 # Ignore environment configuration
 .env
+
+#Ignore other potentially unwanted files/folders
+.Lingvoviz/

@@ -11,25 +11,15 @@ server = Flask(__name__)
 app = dash.Dash(__name__, server= server, external_stylesheets= [dbc.themes.BOOTSTRAP, dbc.icons.BOOTSTRAP])
 
 #Load the dataset
-<<<<<<< HEAD
-df = pd.read_csv("C:/Users/hslia/OneDrive/Desktop/LingvoViz/Data/final_dataset.csv")
+df = pd.read_csv("Data/final_dataset.csv")
 
 #Create the components
 header_component = html.H1("LingvoViz - Languages of the World Dashboard", className="text-center text-primary, mb-4") #header
 dash_description = html.H3('''
                       This dashboard shows language diversity of the world. 
-                      \n You can find plenty of information about language vitality, approximate numbers of speakers and language families.
-=======
-df = pd.read_csv(r".\Data\final_dataset.csv")
-
-#Create the components
-header_component = html.H1("LingvoViz - Languages of the World Dashboard", className="text-center text-primary, mb-4") #header
-dash_description = html.H2('''
-                      This dashboard shows language diversity of the world. 
-                      \n You can find plenty of information about language vitality, numbers of speakers and language families.
->>>>>>> b6202894159cf7dfb48ad612843f5e65097081d2
-                      \n It is meant to give quick access to information about all languages of the world in one place!'''
-                      , style=({"text-align": "left"}), className="text-secondary") #dashboard descriptor
+                      \n You can find plenty of information about language vitality, approximate numbers of speakers and language families.''', 
+                      style=({"text-align": "left"}), className="text-secondary") 
+                      #dashboard descriptor
 
 #Create the infobox
 #Calculate the basic information about the languages for an infobox 
@@ -44,19 +34,12 @@ total_count_lang = sum(lang_status_df["Count of languages"])
 #Safe languages and the number of speakers
 safe_languages = df[df["Status"]=="Safe"]
 safe_lang_count = safe_languages["Name_x"].nunique()
-<<<<<<< HEAD
-#safe_lang_speakers = safe_languages["Speakers"].sum()
+# safe_lang_speakers = safe_languages["Speakers"].sum()
 #print(f"The count of speakers of safe languages is {safe_lang_speakers}")
 
-=======
-safe_lang_speakers = safe_languages["Speakers"].sum()
-#print(f"The count of speakers of safe languages is {safe_lang_speakers}")
-
-
->>>>>>> b6202894159cf7dfb48ad612843f5e65097081d2
 #Endangered languages and the number of speakers
 endang_langs = df[df["Status"]!= "Safe"]
-endang_lang_speakers = endang_langs["Speakers"].sum()
+# endang_lang_speakers = endang_langs["Speakers"].sum()
 endang_lang_count = endang_langs["Name_x"].nunique()
 #print(f"The count of speakers of endangered languages is {endang_lang_speakers}")
 
@@ -82,29 +65,14 @@ infobox_component = dbc.Card([
                html.Span(f"{transform_number(total_count_lang)}", style={"fontSize": "20px", "fontWeight": "bold", "color": "#1f77b4"}),  " languages in the world."]),
         html.P(["There are only ", 
                 html.Span(f"{transform_number(safe_lang_count)}", style={"fontSize": "20px", "fontWeight": "bold", "color": "#1f77b4"}),
-<<<<<<< HEAD
                  " languages whose vitality is considered safe."]),
         html.P(["A staggering number of ",
                html.Span(f"{transform_number(endang_lang_count)}", style={"fontSize": "20px", "fontWeight": "bold", "color": "#1f77b4"}), 
                 " languages are vulnerable or in danger of disappearance."]),
-=======
-                 " languages whose vitality is considered safe and they are spoken by ",
-                  html.Span(f"{transform_number(safe_lang_speakers)}", style={"fontSize": "20px", "fontWeight": "bold", "color": "#1f77b4"}), " people."]),
-        html.P(["A staggering number of ",
-               html.Span(f"{transform_number(endang_lang_count)}", style={"fontSize": "20px", "fontWeight": "bold", "color": "#1f77b4"}), 
-                " languages are vulnerable or in danger of disappearance and count only ",
-                 html.Span(f"{transform_number(endang_lang_speakers)}", style={"fontSize": "20px", "fontWeight": "bold", "color": "#1f77b4"}),
-                  " speakers."]),
->>>>>>> b6202894159cf7dfb48ad612843f5e65097081d2
         html.P([html.Span(f"{transform_number(lost_lang_count)}", style={"fontSize": "20px", "fontWeight": "bold", "color": "#1f77b4"}), " languages have now been lost."])
     ])
 ], style={"marginBottom": "10px", "padding": "10px", "textSize": 14})
 
-<<<<<<< HEAD
-#Search bar
-
-=======
->>>>>>> b6202894159cf7dfb48ad612843f5e65097081d2
 #Plots
 #Plot 1. Languages by vitality status
 #Value counts for each status in the Status column
@@ -116,44 +84,18 @@ status_df.columns = ["Status", "Count"]
 
 #Status descriptions - to inform readers what each status descriptor means
 status_description = {
-<<<<<<< HEAD
-
-    "Safe": "Is spoken by all generations and intergenerational transmission is uninterrupted as a consequence of high status and high presence. ", 
-
-    "Potentially vulnerable": "The language has between 3.5 million to 7 million speakers. Most children speak the language, but it may be restricted to certain domains (e.g. home).",
-
-    "Endangered/unsafe": "The language has from small numbers to 7.5 million speakers.",
-
-    "Definitely endangered": "The language has between 100,000 and 3.5 million speakers. Children no longer learn the language as a mother tongue in the home.", 
-           
-    "Severely endangered": " The language has between 10.000 to 100.000 speakers left. The language is spoken by grandparents and older generations. While the parent generation may understand it, they do not speak it to children or among themselves.",
-    
-    "Critically endangered": "The language is spoken by under 25.000 speakers. The youngest speakers are grandparents and older, and they speak the language partially and infrequently.",
-    
-    "Not in use": "There are no speakers left. The language has presumably gone out of use after 1950."
-}
-
-for key in status_description:
-    status_description[key] = status_description[key].replace(". ", ".<br>")
-
-#mapping status descriptors on the figure legend
-status_df["Description"] = status_df["Status"].map(status_description)
-
-#Plotting the bar chart
-=======
-    "Endangered/unsafe" : "",
-    "Definitely endangered": "Children no longer learn the language as a mother tongue in the home.", 
-    "Not in use": "There are no speakers left.",
-    "Potentially vulnerable": "Most children speak the language, but it may be restricted to certain domains (e.g. home).",
-    "Severely endangered": "The language is spoken by grandparents and older generations. While the parent generation may understand it, they do not speak it to children or among themselves.",
-    "Critically endangered": "The youngest speakers are grandparents and older, and they speak the language partially and infrequently.",
-    "Safe": "Is spoken by all generations and intergenerational transmission is uninterrupted. "
+    "Not in use": "There are no speakers left. <br>The language presumably went out of use after 1950.",
+    "Severely endangered": "The language has between 10,000 to 100,000 speakers. <br>The language is spoken by grandparents and older generations. While the parent generation may understand it, they do not speak it to children or among themselves.",
+    "Critically endangered": "The language is spoken by less than 25.000 speakers. <br>The youngest speakers are grandparents and older, and they speak the language partially and infrequently.",
+    "Endangered/unsafe" : "The language has from small numbers to 7.5 million speakers.",
+    "Definitely endangered": "The language has between 100,000 and 3.5 million speakers. <br>Children no longer learn the language as a mother tongue in the home.", 
+    "Potentially vulnerable": "The language has between 3.5 million to 7 million speakers. <br>Most children speak the language, but it may be restricted to certain domains (e.g. home).",
+    "Safe": "The language is spoken by all generations and intergenerational transmission is uninterrupted. <br> The language is not endangered as a consequence of high status and high presence."
 }
 #mapping status descriptors on the figure legend
 status_df["Description"] = status_df["Status"].map(status_description)
 
 #Plotting the pie chart
->>>>>>> b6202894159cf7dfb48ad612843f5e65097081d2
 fig1= px.bar(status_df,
              x= "Status",
              y="Count",
@@ -164,9 +106,17 @@ fig1= px.bar(status_df,
              text= "Count",
              color="Status"
              )
-<<<<<<< HEAD
-fig1.update_traces(hoverlabel=dict(font_size=12))
-fig1.update_layout(showlegend=False)
+
+fig1.update_traces(hoverlabel=dict(
+    font_size=12,
+    namelength=-1
+    )
+    )
+fig1.update_layout(
+    showlegend=False, 
+    hovermode="closest",
+    margin=dict(l=50, r=50, t=50, b=50)
+    )
 
 # # Plot 2. Bubble chart to compare the size of language families by number of languages and speakers (TAKEN OUT OF THE DASHBOARD AS NUMBERS OF SPEAKERS ARE ONLY ESTIMATES)
 # #Counting number of languages by family
@@ -212,7 +162,6 @@ fig1.update_layout(showlegend=False)
 #     textposition='middle center',
 #     textfont_size=10   
 # )
-=======
 
 # Plot 2. Bubble chart to compare the size of language families by number of languages and speakers
 #Counting number of languages by family
@@ -258,18 +207,16 @@ fig2.update_traces(
     textposition='middle center',
     textfont_size=10   
 )
->>>>>>> b6202894159cf7dfb48ad612843f5e65097081d2
 
 #Plot 3. Create a world map graph with longtitude and latitude data
 df["Speakers"]=df["Speakers"].fillna(1)
 
 #Hover data
 df["hover_text"] = df.apply(
-<<<<<<< HEAD
-    lambda row: f"Language: {row['Name_x']}<br>Status: {row['Status']}<br>Speakers: approx. {row['Speakers']}",
-=======
-    lambda row: f"Language: {row['Name_x']}<br>Status: {row['Status']}<br>Speakers: {row['Speakers']}",
->>>>>>> b6202894159cf7dfb48ad612843f5e65097081d2
+    lambda row: f"Language: {row['Name_x']}<br>"
+                f"Status: {row['Status']}<br>"
+                f"Speakers: approx. {row['Speakers']}<br>"
+                f"More Info: {row['Link']}",
     axis=1
 )
 
@@ -281,50 +228,18 @@ fig3 = px.scatter_geo(
     color="Top-level family",
     size_max=0.2,
     projection="natural earth",
-<<<<<<< HEAD
-    hover_data={"Longtitude": False,
-                "Latitude": False, 
-                "Name_x": False, 
-                "Status": False,
-                "Speakers": False,
-=======
-    title="World map of languages",
     hover_data={"Longtitude": False,
                 "Latitude": False, 
                 "Name_x": False, 
                 "Status": True,
-                "Speakers": True,
->>>>>>> b6202894159cf7dfb48ad612843f5e65097081d2
+                "Speakers": False,
                 "Top-level family": True,
-                "Country": True}
+                "Country": True, 
+                "Link": True}
 )
 
-<<<<<<< HEAD
-fig3.update_layout(
-    showlegend=False,
-    margin=dict(l=0, r=0, t=50, b=0),
-    geo=dict(
-        projection_scale=1,  
-        center=dict(lon=0, lat=20)
-    )
-)
+fig3.update_layout(showlegend=False)
 
-fig3.add_annotation(
-    x=0.01,  
-    y=0.01,  
-    xref="paper",
-    yref="paper",
-    text="Colors of the dots represent a language family",  
-    showarrow=False,
-    font=dict(size=14, color="black"),
-    align="left",
-    bgcolor="white",
-    bordercolor="black",
-    borderwidth=1
-)
-
-=======
->>>>>>> b6202894159cf7dfb48ad612843f5e65097081d2
 # Footer component
 footer_component = html.Footer(
     '''Data sources:
@@ -333,82 +248,43 @@ footer_component = html.Footer(
     \n edited by Hammarström, Harald & Forkel, Robert & Haspelmath, Martin & Bank, Sebastian is licensed under a Creative Commons Attribution 4.0 International License''', 
     style={"textAlign": "left", "padding": "10px", "color": "gray", "fontSize": 12}
 )
-<<<<<<< HEAD
-#Set up the dashboard app layout
-=======
 #Set up the app layout
->>>>>>> b6202894159cf7dfb48ad612843f5e65097081d2
 app.layout= dbc.Container([
     # Header
     dbc.Row([
         dbc.Col(header_component)
     ]),
 
-<<<<<<< HEAD
-    
-=======
->>>>>>> b6202894159cf7dfb48ad612843f5e65097081d2
     # Description
     dbc.Row([
         dbc.Col(dash_description)
     ]),
 
     # Main content
+            
     dbc.Row([
-<<<<<<< HEAD
         # Left Column: Infobox + 1 smaller plot
         dbc.Col([
             infobox_component,
             dcc.Graph(figure=fig1, style={"height": "400px"}),
-        ], width=4), 
-
-        #Search bar
-        dbc.Col([
-            dbc.Row([
-                dbc.Input(id="search-bar",
-                type="text",
-                placeholder="Search for a language...",
-                debounce=True,  # Waits before triggering an update
-                style={"width": "100%", "margin-bottom": "20px"}
-            ),
-            ], justify="center"),
-
-        # Right Column: Large Plot 3 (Interactive map)
-        dcc.Graph(id="map-plot", figure=fig3, style={"height": "800px"})
-        ], width=8)
-    ]),
-
-    # dbc.Row([
-    #     dbc.Col(dcc.Graph(figure= fig2)
-    #     )
- 
-=======
-        # Left Column: Infobox + 2 smaller plots
-        dbc.Col([
-            infobox_component,
-            dcc.Graph(figure=fig1, style={"height": "400px"}),
             
-        ], width=4), 
+        ], width=4),
 
         # Right Column: Large Plot 3 (Interactive map)
         dbc.Col([
-            dcc.Graph(figure=fig3, style={"height": "800px"})
+            #Search bar
+            dbc.Row([
+                dbc.Col([dcc.Input(id="search-bar", type="text", placeholder="Search for a language")])
+            ]),
+            dcc.Graph(id="map-plot", figure=fig3, style={"height": "1000px"})
         ], width=8)
     ]),
 
-    dbc.Row([
-        dbc.Col(dcc.Graph(figure= fig2)
-        )
-    ]),
-
->>>>>>> b6202894159cf7dfb48ad612843f5e65097081d2
     # Footer
     dbc.Row([
         dbc.Col(footer_component)
     ])
 ], fluid=True)
-
-<<<<<<< HEAD
 
 #Search for a language
 @app.callback(
@@ -416,14 +292,18 @@ app.layout= dbc.Container([
     Input("search-bar", "value")
 )
 def update_map(search_value):
-    filtered_df = df  # Default: show all data
+    updated_fig = fig3  # Default: show all data
+    filtered_df = df
 
     # Filter data if search value is entered
     if search_value:
         filtered_df = df[df["Name_x"].str.contains(search_value, case=False, na=False)]
 
+        if filtered_df.empty:
+            return px.scatter_geo(title="No languages found for the given search")
+
     # Create the updated map figure
-    fig = px.scatter_geo(
+    updated_fig = px.scatter_geo(
         filtered_df,
         lon="Longtitude",
         lat="Latitude",
@@ -435,12 +315,22 @@ def update_map(search_value):
                 "Status": True,
                 "Speakers": True,
                 "Top-level family": True,
+                "Link": True,
                 "Country": True}
     )
 
-    return fig.update_layout(showlegend=False)
+    # fig.update_layout(
+    #     geo=dict(
+    #         projection_type="natural earth",  # Force round projection
+    #         showland=True,
+    #         landcolor="lightgray",
+    #         projection_scale=1.1,  # Adjust the scale if needed
+    #     ),
+    #     showlegend=False
+    # )
 
-=======
->>>>>>> b6202894159cf7dfb48ad612843f5e65097081d2
+    updated_fig.update_layout(showlegend=False)
+    return updated_fig
+
 #Run the app
 app.run_server(debug=True)
