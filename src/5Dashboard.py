@@ -1,4 +1,5 @@
 import dash
+import os
 from dash import dcc, html
 from dash.dependencies import Input, Output
 import pandas as pd
@@ -333,4 +334,4 @@ def update_map(search_value):
     return updated_fig
 
 #Run the app
-app.run_server(debug=True)
+app.run_server(host="0.0.0.0", port=int(os.environ.get("PORT", 8050)))
