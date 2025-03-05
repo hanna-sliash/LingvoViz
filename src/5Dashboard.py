@@ -31,6 +31,7 @@ dash_description = html.H3(
     style=({"text-align": "left"}),
     className="text-secondary",
 )
+
 # dashboard descriptor
 
 # Create the infobox
@@ -169,6 +170,7 @@ fig1 = px.bar(
     hover_data={"Description": True, "Status": False, "Count": False},
     text="Count",
     color="Status",
+    color_discrete_sequence=px.colors.qualitative.Set1
 )
 
 fig1.update_traces(hoverlabel=dict(font_size=12, namelength=-1))
@@ -282,6 +284,11 @@ df["hover_text"] = df.apply(
     axis=1,
 )
 
+unique_categories = df["Top-level family"].unique()
+color_palette = px.colors.sample_colorscale(px.colors.qualitative.Dark24, [i/len(unique_categories) for i in range(len(unique_categories))])
+
+color_mapping = {cat: color for cat, color in zip(unique_categories, color_palette)}
+
 fig3 = px.scatter_geo(
     df,
     lon="Longtitude",
@@ -290,6 +297,7 @@ fig3 = px.scatter_geo(
     color="Top-level family",
     size_max=0.2,
     projection="natural earth",
+    color_discrete_map=color_mapping,
     hover_data={
         "Longtitude": False,
         "Latitude": False,
@@ -299,7 +307,7 @@ fig3 = px.scatter_geo(
         "Top-level family": True,
         "Country": True,
         "Link": True,
-    },
+        },
 )
 
 fig3.update_layout(showlegend=False)
@@ -317,8 +325,10 @@ app.layout = dbc.Container(
     [
         # Header
         dbc.Row([dbc.Col(header_component)]),
+
         # Description
         dbc.Row([dbc.Col(dash_description)]),
+
         # Main content
         dbc.Row(
             [
@@ -330,6 +340,7 @@ app.layout = dbc.Container(
                     ],
                     width=4,
                 ),
+
                 # Right Column: Large Plot 3 (Interactive map)
                 dbc.Col(
                     [
@@ -337,33 +348,54 @@ app.layout = dbc.Container(
                         dbc.Row(
                             [
                                 dbc.Col(
-                                    [
-                                        dcc.Input(
-                                            id="search-bar",
-                                            type="text",
-                                            placeholder="Search for a language",
-                                        )
-                                    ]
-                                )
-                            ]
+                                    dcc.Input(
+                                        id="search-bar",
+                                        type="text",
+                                        placeholder="Search for a language",
+                                        debounce=True,
+                                        style={"width": "70%", "margin-right": "5px"}
+                                    ),
+                                    width="auto"
+                                ),
+                                dbc.Col(
+                                    html.Button(
+                                        "Search",
+                                        id="search-button",
+                                        n_clicks=0,
+                                        className="btn btn-primary"
+                                    ),
+                                    width="auto"
+                                ),
+                            ],
+                            justify="center",
+                            style={"margin-bottom": "10px"}
                         ),
+
+                        # Map
                         dcc.Graph(
-                            id="map-plot", figure=fig3, style={"height": "1000px"}
+                            id="map-plot",
+                            figure=fig3,
+                            style={"height": "75vh"}
                         ),
                     ],
                     width=8,
                 ),
             ]
         ),
+
         # Footer
         dbc.Row([dbc.Col(footer_component)]),
     ],
     fluid=True,
 )
 
-
 # Search for a language
-@app.callback(Output("map-plot", "figure"), Input("search-bar", "value"))
+@app.callback(
+        Output("map-plot", "figure"), 
+        Input("search-button", "n_clicks"),
+        Input("search-bar", "value"),
+        prevent_initial_call = True
+        )
 def update_map(search_value):
     updated_fig = fig3  # Default: show all data
     filtered_df = df
@@ -382,6 +414,9 @@ def update_map(search_value):
         lat="Latitude",
         hover_name="Name_x",
         color="Top-level family",
+        size_max=0.2,
+        projection="natural earth",
+        color_discrete_map=color_mapping,
         hover_data={
             "Longtitude": False,
             "Latitude": False,
@@ -404,7 +439,13 @@ def update_map(search_value):
     #     showlegend=False
     # )
 
-    updated_fig.update_layout(showlegend=False)
+    updated_fig.update_layout(
+        geo = dict(
+            projection_type = "natural earth",
+            showland = True,
+            landcolor = "lightgray",
+        ),
+        showlegend=False)
     return updated_fig
 
 

@@ -1,12 +1,19 @@
 import numpy as np
 import pandas as pd
 
+
+
+def clean_and_merge(input_files:list[str]):
+      
+    # Step 1. Loading CSV into a dataframe, row 1 is the header in both tables
+    df1 = pd.read_csv(input_files[0], header=0)
+    df2 = pd.read_csv("./Data/Glottolog_languages.csv", header=0)
 # Step 1. Loading CSV into a dataframe, row 1 is the header in both tables
 
 df1 = pd.read_csv("./Data/UNESCO_languages.csv", header=0)
 df2 = pd.read_csv("./Data/Glottolog_languages.csv", header=0)
 
-
+    
 # Checking datatypes
 print(f"The UNESCO table data types are: \n{df1.dtypes}")
 print(f"The Glottolog table data types are: \n{df2.dtypes}")
