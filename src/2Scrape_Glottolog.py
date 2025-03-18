@@ -1,5 +1,5 @@
 import time
-
+import config
 import pandas as pd
 from bs4 import BeautifulSoup
 from selenium import webdriver
