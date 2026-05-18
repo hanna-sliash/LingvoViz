@@ -3,7 +3,7 @@
 LingvoViz is a dashboard project that explores global linguistic diversity using
 data from the UNESCO Atlas of World Languages and Glottolog.
 
-The repository now separates exploratory notebook-style files from the reusable
+The repository separates exploratory notebook-style files from the reusable
 application code:
 
 - `notebooks/` keeps the original numbered scripts unchanged as historical,
