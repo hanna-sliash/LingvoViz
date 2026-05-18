@@ -24,7 +24,7 @@ def register_callbacks(app: Dash, df: pd.DataFrame) -> None:
 
     @app.callback(
         Output("insight-panel", "children"),
-        Input("insight-selector", "value"),
+        Input("insight-selector", "active_tab"),
     )
     def update_insight_panel(selected_view: str):
         if selected_view == "vitality":

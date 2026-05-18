@@ -120,26 +120,25 @@ def build_layout(df: pd.DataFrame) -> dbc.Container:
                         [
                             html.Div(
                                 [
-                                    html.Label(
+                                    html.H5(
                                         "Insight panel",
-                                        htmlFor="insight-selector",
-                                        className="fw-semibold text-primary mb-2",
+                                        className="text-primary mb-3",
                                     ),
-                                    dcc.Dropdown(
+                                    dbc.Tabs(
                                         id="insight-selector",
-                                        options=[
-                                            {"label": "Overview", "value": "overview"},
-                                            {
-                                                "label": "Languages by vitality",
-                                                "value": "vitality",
-                                            },
-                                            {
-                                                "label": "Language families",
-                                                "value": "families",
-                                            },
+                                        active_tab="overview",
+                                        className="mb-3",
+                                        children=[
+                                            dbc.Tab(label="Overview", tab_id="overview"),
+                                            dbc.Tab(
+                                                label="Languages by vitality",
+                                                tab_id="vitality",
+                                            ),
+                                            dbc.Tab(
+                                                label="Language families",
+                                                tab_id="families",
+                                            ),
                                         ],
-                                        value="overview",
-                                        clearable=False,
                                     ),
                                 ],
                                 className="mb-3",
