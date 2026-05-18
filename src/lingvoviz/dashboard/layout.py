@@ -120,10 +120,6 @@ def build_layout(df: pd.DataFrame) -> dbc.Container:
                         [
                             html.Div(
                                 [
-                                    html.H5(
-                                        "Insight panel",
-                                        className="text-primary mb-3",
-                                    ),
                                     dbc.Tabs(
                                         id="insight-selector",
                                         active_tab="overview",
