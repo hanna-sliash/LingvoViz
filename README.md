@@ -1,17 +1,72 @@
 # LingvoViz: Languages of the World
-This project comprehensively and interactively illustrates linguistic diversity of the world by using data from 2 data sets - UNESCO Atlas of World Languages and Glottolog. This is achieved by means of web scraping and an interactive dashboard. 
+
+LingvoViz is a dashboard project that explores global linguistic diversity using
+data from the UNESCO Atlas of World Languages and Glottolog.
+
+The repository now separates exploratory notebook-style files from the reusable
+application code:
+
+- `notebooks/` keeps the original numbered scripts unchanged as historical,
+  exploratory references.
+- `src/lingvoviz/` contains the refactored scraping, processing, and dashboard
+  modules.
+- `scripts/` contains thin entrypoints for running the pipeline and the app.
+- `data/raw`, `data/interim`, and `data/processed` reflect the stages of the
+  data pipeline.
 
 ## Installation
-1. Clone the repository: `git clone https://github.com/hanna-sliash/LingvoViz.git`
-2. Install dependencies: `pip install -r requirements.txt`
+
+1. Clone the repository:
+   `git clone https://github.com/hanna-sliash/LingvoViz.git`
+2. Install dependencies:
+   `pip install -r requirements.txt`
 
 ## Usage
-1. Run the scripts in `src/` in order of numbering to collect and clean the data and to run the dashboard.
-3. Open the dashboard in your browser at `http://127.0.0.1:8050/`.
 
-## File Structure
-- `data/`: Raw and cleaned datasets.
-- `src/`: Scripts for scraping, cleaning and dashboard
+### Build the processed dataset from the existing raw CSV files
+
+```bash
+python scripts/build_dataset.py
+```
+
+### Run the dashboard locally
+
+```bash
+python scripts/run_dashboard.py
+```
+
+Then open `http://127.0.0.1:8050/`.
+
+## Project Structure
+
+```text
+LingvoViz/
+├─ data/
+│  ├─ raw/
+│  ├─ interim/
+│  └─ processed/
+├─ notebooks/
+├─ scripts/
+├─ src/
+│  └─ lingvoviz/
+│     ├─ dashboard/
+│     ├─ processing/
+│     ├─ scraping/
+│     ├─ config.py
+│     └─ paths.py
+└─ tests/
+```
+
+## Deployment note
+
+The dashboard app exposes `server` from [app.py](/C:/Users/hslia/OneDrive/Desktop/LingvoViz/app.py)
+so services like Render can use a start command such as:
+
+```bash
+gunicorn app:server
+```
 
 ## Acknowledgments
-- Data sourced from [Glottolog](https://glottolog.org/glottolog/language) and [UNESCO WAL](https://en.wal.unesco.org/discover/languages).
+
+- UNESCO World Atlas of Languages
+- Glottolog 5.1

@@ -1,4 +1,4 @@
-Name_x,Status,Link,Speakers,Glottocode,Country,Top-level family,ISO-639-3,Macroarea,Child dialects,Latitude,Longtitude
+Name,Status,Link,Speakers,Glottocode,Country,Top-level family,ISO-639-3,Macroarea,Child dialects,Latitude,Longitude
 Aari,Potentially vulnerable,https://en.wal.unesco.org/languages/aari,999999.0,aari1239,,South Omotic,aiw,Africa,0.0,5.95,36.57
 Aasax,Not in use,https://en.wal.unesco.org/languages/aasax,0.0,aasa1238,,Afro-Asiatic,aas,Africa,0.0,-4.01,36.86
 Abadi,Endangered/unsafe,https://en.wal.unesco.org/languages/abadi,9999.0,abad1241,,Austronesian,kbt,Papunesia,0.0,-9.03,146.99
@@ -375,6 +375,7 @@ Arikapú,Not in use,https://en.wal.unesco.org/languages/arikapu,0.0,arik1265,,N
 Arin,Not in use,https://en.wal.unesco.org/languages/arin,0.0,arin1243,,Yeniseian,xrn,Eurasia,0.0,57.0,93.0
 Aringa,Potentially vulnerable,https://en.wal.unesco.org/languages/aringa,999999.0,arin1244,,Central Sudanic,luc,Africa,0.0,3.56,31.31
 Aritinngitigh,Not in use,https://en.wal.unesco.org/languages/aritinngitigh,0.0,arit1239,,Pama-Nyungan,rrt,Australia,0.0,-12.96,141.95
+Arizona Tewa,Not in use,https://en.wal.unesco.org/languages/arizona-tewa,0.0,ariz1237,,Kiowa-Tanoan,,North America,1.0,35.84,-110.38
 Arma,Not in use,https://en.wal.unesco.org/languages/arma,0.0,arma1244,,Unattested,aoh,South America,0.0,2.03,-76.0
 Armenian Sign Language,Endangered/unsafe,https://en.wal.unesco.org/languages/armenian-sign-language,9999.0,arme1259,,Sign Language,aen,Eurasia,0.0,40.1,44.48
 Aromanian,Definitely endangered,https://en.wal.unesco.org/languages/aromanian,999999.0,arom1237,Albania,Indo-European,rup,Eurasia,2.0,40.62,21.2
@@ -846,6 +847,7 @@ Bijori,Endangered/unsafe,https://en.wal.unesco.org/languages/bijori,99999.0,bijo
 Bikya,Not in use,https://en.wal.unesco.org/languages/bikya,0.0,biky1238,,Atlantic-Congo,byb,Africa,0.0,6.75,10.53
 Bilaspuri,Potentially vulnerable,https://en.wal.unesco.org/languages/bilaspuri,999999.0,bila1253,India,Indo-European,kfs,Eurasia,0.0,31.38,76.67
 Bila,Endangered/unsafe,https://en.wal.unesco.org/languages/bila,99999.0,bila1255,,Atlantic-Congo,bip,Africa,2.0,1.17,28.76
+Karen,Severely endangered,https://en.wal.unesco.org/languages/karen,99.0,bila1257,,Nuclear Trans New Guinea,bql,Papunesia,0.0,-4.93,145.56
 Bilibil,Definitely endangered,https://en.wal.unesco.org/languages/bilibil,9999.0,bilb1241,,Austronesian,brz,Papunesia,0.0,-5.27,145.76
 Bilba,Endangered/unsafe,https://en.wal.unesco.org/languages/bilba,9999.0,bilb1242,,Austronesian,bpz,Papunesia,4.0,-10.65,123.31
 Bile,Severely endangered,https://en.wal.unesco.org/languages/bile,99999.0,bile1244,,Atlantic-Congo,bil,Africa,0.0,8.9,11.19
@@ -3034,6 +3036,7 @@ Karingani-Kalasuri-Khoynarudi,Endangered/unsafe,https://en.wal.unesco.org/langua
 Kariyarra,Not in use,https://en.wal.unesco.org/languages/kariyarra,0.0,kari1304,,Pama-Nyungan,vka,Australia,0.0,-20.45,118.61
 Kari,Definitely endangered,https://en.wal.unesco.org/languages/kari,999.0,kari1306,,Atlantic-Congo,kbj,Africa,0.0,5.04,25.75
 Karitiâna,Definitely endangered,https://en.wal.unesco.org/languages/karitiana,999.0,kari1311,,Tupian,ktn,South America,0.0,-9.38,-64.15
+Karipuna,Not in use,https://en.wal.unesco.org/languages/karipuna,0.0,kari1312,,Pano-Tacanan,,South America,0.0,-10.0,-65.5
 Kariya,Definitely endangered,https://en.wal.unesco.org/languages/kariya,9999.0,kari1316,,Afro-Asiatic,kil,Africa,0.0,11.01,9.64
 Karipuna,Severely endangered,https://en.wal.unesco.org/languages/karipuna-0,9.0,kari1317,,Tupian,kuq,South America,0.0,-10.2,-64.28
 Karko,Definitely endangered,https://en.wal.unesco.org/languages/karko,9999.0,kark1256,Sudan,Nubian,kko,Africa,0.0,12.05,29.21
@@ -3136,6 +3139,7 @@ Keningau Murut,Definitely endangered,https://en.wal.unesco.org/languages/keninga
 Kensiu,Definitely endangered,https://en.wal.unesco.org/languages/kensiu,999.0,kens1248,,Austroasiatic,kns,Eurasia,9.0,5.98,101.03
 Kenswei Nsei,Endangered/unsafe,https://en.wal.unesco.org/languages/kenswei-nsei,99999.0,kens1251,,Atlantic-Congo,ndb,Africa,0.0,6.02,10.41
 Kenuzi-Dongola,Definitely endangered,https://en.wal.unesco.org/languages/kenuzi-dongola,99999.0,kenu1236,,Nubian,kzh,Africa,2.0,21.28,31.9
+Kenya-Somali Sign Language,Potentially vulnerable,https://en.wal.unesco.org/languages/kenya-somali-sign-language,999999.0,keny1241,,Sign Language,xki,Africa,0.0,-1.0,37.2
 Kenya-Somali Sign Language,Endangered/unsafe,https://en.wal.unesco.org/languages/kenya-somali-sign-language-0,,keny1241,,Sign Language,xki,Africa,0.0,-1.0,37.2
 Kenyi,Endangered/unsafe,https://en.wal.unesco.org/languages/kenyi,99999.0,keny1278,,Atlantic-Congo,lke,Africa,0.0,1.15,33.48
 Kenyang,Endangered/unsafe,https://en.wal.unesco.org/languages/kenyang,99999.0,keny1279,,Atlantic-Congo,ken,Africa,3.0,5.58,9.56
@@ -5090,6 +5094,7 @@ Northern Sunraysia,Not in use,https://en.wal.unesco.org/languages/northern-sunra
 Northern Inland Yuin,Not in use,https://en.wal.unesco.org/languages/northern-inland-yuin,0.0,nort2760,,Pama-Nyungan,,Australia,2.0,-34.85,149.1
 Northern Kissi,Potentially vulnerable,https://en.wal.unesco.org/languages/northern-kissi,999999.0,nort2765,,Atlantic-Congo,kqs,Africa,4.0,8.73,-10.41
 North Fali,Definitely endangered,https://en.wal.unesco.org/languages/north-fali,99999.0,nort2770,,Atlantic-Congo,fll,Africa,3.0,9.92,13.66
+Northern Ndebele,Potentially vulnerable,https://en.wal.unesco.org/languages/northern-ndebele,999999.0,nort2774,Zimbabwe,Atlantic-Congo,ngb,Africa,0.0,3.56,21.85
 Northwest Gbaya,Potentially vulnerable,https://en.wal.unesco.org/languages/northwest-gbaya,999999.0,nort2775,,Atlantic-Congo,gya,Africa,10.0,5.95,15.26
 Northern Dagara,Potentially vulnerable,https://en.wal.unesco.org/languages/northern-dagara,999999.0,nort2780,,Atlantic-Congo,dgi,Africa,3.0,11.04,-3.01
 Northern Nuni,Endangered/unsafe,https://en.wal.unesco.org/languages/northern-nuni,99999.0,nort2784,,Atlantic-Congo,nuv,Africa,2.0,12.13,-2.98
@@ -6380,6 +6385,7 @@ Sirenik,Not in use,https://en.wal.unesco.org/languages/sirenik,0.0,sire1246,,Esk
 Sirionó,Critically endangered,https://en.wal.unesco.org/languages/siriono,999.0,siri1273,,Tupian,srq,South America,0.0,-15.53,-63.97
 Siriano,Definitely endangered,https://en.wal.unesco.org/languages/siriano,999.0,siri1274,Colombia,Tucanoan,sri,South America,0.0,0.44,-70.18
 Siri,Definitely endangered,https://en.wal.unesco.org/languages/siri,999.0,siri1278,,Afro-Asiatic,sir,Africa,0.0,10.76,9.67
+Sisiqa,Potentially vulnerable,https://en.wal.unesco.org/languages/sisiqa,999999.0,sirm1239,India,Indo-European,srx,Eurasia,2.0,31.1,77.17
 Siroi,Endangered/unsafe,https://en.wal.unesco.org/languages/siroi,9999.0,siro1249,,Nuclear Trans New Guinea,ssd,Papunesia,0.0,-5.53,145.99
 Sisiqa,Definitely endangered,https://en.wal.unesco.org/languages/sisiqa-0,,sisi1250,,Austronesian,,Papunesia,0.0,-7.0,156.83
 Sissala of Burkina Faso,Potentially vulnerable,https://en.wal.unesco.org/languages/sissala-burkina-faso,999999.0,siss1242,,Atlantic-Congo,sld,Africa,0.0,11.09,-2.38
@@ -6755,6 +6761,7 @@ Tampuan,Severely endangered,https://en.wal.unesco.org/languages/tampuan,99999.0,
 Tampulma,Endangered/unsafe,https://en.wal.unesco.org/languages/tampulma,99999.0,tamp1252,,Atlantic-Congo,tpm,Africa,0.0,9.76,-1.35
 Tampias Lobu,Definitely endangered,https://en.wal.unesco.org/languages/tampias-lobu,999.0,tamp1254,,Austronesian,low,Papunesia,0.0,5.72,116.79
 Tanapag,Definitely endangered,https://en.wal.unesco.org/languages/tanapag,9.0,tana1281,,Austronesian,tpv,Papunesia,0.0,15.24,145.76
+Tanahmerah,Definitely endangered,https://en.wal.unesco.org/languages/tanahmerah,999.0,tana1288,,,tcm,Papunesia,0.0,-2.55,133.18
 Tanahmerah,Definitely endangered,https://en.wal.unesco.org/languages/tanahmerah-0,999.0,tana1288,,,tcm,Papunesia,0.0,-2.55,133.18
 Dena'ina,Severely endangered,https://en.wal.unesco.org/languages/denaina,99.0,tana1289,,Athabaskan-Eyak-Tlingit,tfn,North America,2.0,60.47,-150.76
 Tanacross,Critically endangered,https://en.wal.unesco.org/languages/tanacross,99.0,tana1290,,Athabaskan-Eyak-Tlingit,tcb,North America,0.0,63.4,-143.34
@@ -7091,6 +7098,7 @@ Totoli,Definitely endangered,https://en.wal.unesco.org/languages/totoli,99999.0,
 Totontepec Mixe,Definitely endangered,https://en.wal.unesco.org/languages/totontepec-mixe,9999.0,toto1305,,Mixe-Zoque,mto,North America,0.0,17.22,-96.02
 Totoro,Not in use,https://en.wal.unesco.org/languages/totoro,0.0,toto1306,Colombia,Barbacoan,ttk,South America,0.0,2.55,-76.64
 Totomachapan Zapotec,Critically endangered,https://en.wal.unesco.org/languages/totomachapan-zapotec,999.0,toto1308,,Otomanguean,zph,North America,0.0,16.86,-97.08
+Touo,Definitely endangered,https://en.wal.unesco.org/languages/touo,9999.0,touo1238,,,tqu,Papunesia,0.0,-8.58,157.3
 Touo,Definitely endangered,https://en.wal.unesco.org/languages/touo-0,9999.0,touo1238,,,tqu,Papunesia,0.0,-8.58,157.3
 Toura (Côte d'Ivoire),Endangered/unsafe,https://en.wal.unesco.org/languages/toura-cote-divoire,99999.0,tour1242,,Mande,neb,Africa,6.0,7.77,-7.33
 Toura (Papua New Guinea),Definitely endangered,https://en.wal.unesco.org/languages/toura-papua-new-guinea,9999.0,tour1243,,Austronesian,don,Papunesia,0.0,-9.1,146.99
