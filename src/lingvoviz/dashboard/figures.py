@@ -72,7 +72,7 @@ def build_family_figure(df: pd.DataFrame):
     family_summary["text"] = family_summary.apply(
         lambda row: (
             f"{row['Top-level family']}\n{row['Count']} languages"
-            if row["Count"] > 200
+            if row["Count"] >= 300
             else ""
         ),
         axis=1,
@@ -86,16 +86,25 @@ def build_family_figure(df: pd.DataFrame):
         color="Top-level family",
         hover_name="Top-level family",
         hover_data={
-            "Count": False,
+            "Count": True,
             "Top-level family": False,
-            "Total number of speakers": True,
+            "Total number of speakers": ":,.0f",
         },
-        size_max=120,
+        size_max=55,
         text="text",
         title="Language families by number of languages and speakers",
     )
-    figure.update_layout(xaxis_title="Number of Languages")
-    figure.update_traces(textposition="middle center", textfont_size=10)
+    figure.update_layout(
+        xaxis_title="Number of languages",
+        yaxis_title="Total number of speakers",
+        margin={"l": 50, "r": 30, "t": 70, "b": 50},
+        showlegend=False,
+    )
+    figure.update_traces(
+        textposition="top center",
+        textfont_size=10,
+        marker={"opacity": 0.7, "line": {"width": 1, "color": "white"}},
+    )
     return figure
 
 

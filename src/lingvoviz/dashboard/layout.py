@@ -7,7 +7,7 @@ import pandas as pd
 from dash import dcc, html
 
 from lingvoviz.config import DASHBOARD_TITLE
-from lingvoviz.dashboard.figures import build_family_figure, build_map_figure, build_status_figure
+from lingvoviz.dashboard.figures import build_map_figure
 from lingvoviz.utils.text import format_human_number
 
 
@@ -118,19 +118,40 @@ def build_layout(df: pd.DataFrame) -> dbc.Container:
                 [
                     dbc.Col(
                         [
-                            build_overview_card(df),
-                            dcc.Graph(
-                                id="status-figure",
-                                figure=build_status_figure(df),
-                                style={"height": "400px"},
+                            html.Div(
+                                [
+                                    html.Label(
+                                        "Insight panel",
+                                        htmlFor="insight-selector",
+                                        className="fw-semibold text-primary mb-2",
+                                    ),
+                                    dcc.Dropdown(
+                                        id="insight-selector",
+                                        options=[
+                                            {"label": "Overview", "value": "overview"},
+                                            {
+                                                "label": "Languages by vitality",
+                                                "value": "vitality",
+                                            },
+                                            {
+                                                "label": "Language families",
+                                                "value": "families",
+                                            },
+                                        ],
+                                        value="overview",
+                                        clearable=False,
+                                    ),
+                                ],
+                                className="mb-3",
                             ),
-                            dcc.Graph(
-                                id="family-figure",
-                                figure=build_family_figure(df),
-                                style={"height": "420px"},
+                            html.Div(
+                                id="insight-panel",
+                                children=build_overview_card(df),
                             ),
                         ],
-                        width=4,
+                        xs=12,
+                        lg=4,
+                        className="mb-4",
                     ),
                     dbc.Col(
                         [
@@ -162,12 +183,15 @@ def build_layout(df: pd.DataFrame) -> dbc.Container:
                             dcc.Graph(
                                 id="map-plot",
                                 figure=build_map_figure(df),
-                                style={"height": "75vh"},
+                                style={"height": "70vh", "minHeight": "520px"},
                             ),
                         ],
-                        width=8,
+                        xs=12,
+                        lg=8,
+                        className="mb-4",
                     ),
-                ]
+                ],
+                className="g-4",
             ),
             dbc.Row(
                 [
